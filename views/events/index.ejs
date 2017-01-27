@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Welcome to <%= title %></h2>
+    <script>
+    var source = new EventSource('/events/stream');
+    source.onmessage = function(e) {
+      document.body.innerHTML += e.data + '<br>';
+    };
+  </script>
+  </body>
+</html>
